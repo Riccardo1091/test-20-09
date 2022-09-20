@@ -16,16 +16,28 @@ export function Home() {
 
     function handler() {
         mutate()
-        if (data.split(" ")[0] % 2 === 0) {
-            setEven(prev => [...prev, data])
-        } else {
-            setOdd(prev => [...prev, data])
-        } 
+        if (data) {
+            if (data.split(" ")[0] % 2 === 0) {
+                setEven(prev => [...prev, data])
+            } else {
+                setOdd(prev => [...prev, data])
+            }
+        }
+        
     }
 
-    useEffect(() => {
-        console.log(odd, even)
-    }, [odd, even]);
+    function deleter(e) {
+        if (e.target.name.split(" ")[0] % 2 === 0) {
+            setEven(prev => prev.filter(el => el !== e.target.name))
+        } else {
+            setOdd(prev => prev.filter(el => el !== e.target.name))
+        }
+    }
+
+
+    // useEffect(() => {
+    //     console.log(odd, even)
+    // }, [odd, even]);
 
 
     return (
@@ -34,9 +46,9 @@ export function Home() {
             <p>
                 {data && data}
             </p>
-            <div style={{'display':'flex'}}>
-                <Odd style={{'width':'50%','flex':'50%'}} props={odd}/>
-                <Even style={{'width':'50%','flex':'50%'}} props={even}/>
+            <div>
+                <Odd props={{odd, deleter}}/><br/>
+                <Even props={{even, deleter}}/>
             </div>
         </>
     )
