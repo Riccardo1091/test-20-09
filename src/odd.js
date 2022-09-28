@@ -10,7 +10,7 @@ export function Odd({props}) {
     return(
         <div>  
             <button onClick={handler}>Odd</button>
-            {value && props.odd.map((el, index) => <li key={el+index}>{el} <button name={el} onClick={props.deleter}>Delete</button></li>)}
+            {value && props.odd.map((el, index) => <li key={el + Math.random() + index}>{el} <button name={el} onClick={props.deleter}>Delete</button></li>)}
         </div>
     )
 }

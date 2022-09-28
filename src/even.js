@@ -10,7 +10,7 @@ export function Even({props}) {
     return(
         <div>  
             <button onClick={handler}>Even</button>
-            {value && props.even.map((el, index) => <li key={el+index}>{el} <button name={el} onClick={props.deleter}>Delete</button></li>)}
+            {value && props.even.map((el, index) => <li key={el + Math.random() + index}>{el} <button name={el} onClick={props.deleter}>Delete</button></li>)}
         </div>
     )
 }
