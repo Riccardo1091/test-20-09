@@ -6,7 +6,7 @@ import { Odd } from "./odd";
 const fetcher = (url) => fetch(url).then((res) => res.text());
 
 export function Home() {
-    const {data, mutate} = useSWR("http://numbersapi.com/random/math", fetcher, {
+    const {data, mutate} = useSWR("http://localhost:4000/math", fetcher, {
         revalidateOnMount: false,
         revalidateOnFocus: false,
         revalidateOnReconnect: false,
